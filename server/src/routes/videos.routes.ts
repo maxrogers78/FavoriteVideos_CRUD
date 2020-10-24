@@ -4,7 +4,7 @@ const router = Router();
 // Controllers
 import * as videoCtrl from "./videos.controller";
 
-router.get("/videos", videoCtrl.getVideo);
+router.get("/videos", videoCtrl.getVideos);
 router.get("/videos/:id", videoCtrl.getVideo);
 
 router.post("/videos", videoCtrl.createVideo);
