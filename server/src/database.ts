@@ -6,6 +6,7 @@ import config from "./config";
     const mongooseOptions: ConnectionOptions = {
       useUnifiedTopology: true,
       useNewUrlParser: true,
+      useCreateIndex: true,
     };
     const db = await mongoose.connect(
       `mongodb://${config.MONGO_HOST}/${config.MONGO_DATABASE}`,
