@@ -1,3 +1,6 @@
-const greeting: string = "hello world";
+const express = require("express");
+const app = express();
 
-console.log(greeting);
+app.listen(3000, () => {
+  console.log("Server on port 3000");
+});
