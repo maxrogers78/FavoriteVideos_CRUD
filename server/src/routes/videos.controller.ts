@@ -16,18 +16,50 @@ export const createVideo: RequestHandler = async (req, res) => {
 };
 
 export const getVideos: RequestHandler = async (req, res) => {
-  const videos = await Video.find();
-  return res.json(videos);
+  try {
+    const videos = await Video.find();
+    return res.json(videos);
+  } catch (error) {
+    res.json(error);
+  }
 };
 
-export const getVideo: RequestHandler = (req, res) => {
-  res.json("getting a single video");
+export const getVideo: RequestHandler = async (req, res) => {
+  try {
+    const video = await Video.findById(req.params.id);
+
+    if (!video) {
+      return res.status(404).json({ msg: "Video not found" });
+    }
+
+    return res.json(video);
+  } catch (error) {
+    return res.status(404).json({ msg: "Video not found" });
+  }
 };
 
-export const deleteVideo: RequestHandler = (req, res) => {
-  res.json("deleting video");
+export const deleteVideo: RequestHandler = async (req, res) => {
+  try {
+    const video = await Video.findByIdAndDelete(req.params.id);
+
+    if (!video) {
+      return res.status(404).json({ msg: "Video not found" });
+    }
+
+    return res.json(video);
+  } catch (error) {
+    return res.status(404).json({ msg: "Video not found" });
+  }
 };
 
-export const updateVideo: RequestHandler = (req, res) => {
-  res.json("updating video");
+export const updateVideo: RequestHandler = async (req, res) => {
+  try {
+    const video = await Video.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+
+    res.json(video);
+  } catch (error) {
+    return res.status(404).json({ msg: "Video not found" });
+  }
 };
