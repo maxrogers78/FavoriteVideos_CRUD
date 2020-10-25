@@ -32,3 +32,10 @@ Go to the `server` folder and run `npm run build`
 Go to the `server` folder and run `npm run dev`
 
 ## Frontend
+### Build node_modules
+
+Go to the `client` folder and run `npm install` or `npm i`
+
+### Run development mode
+
+Go to the `client` folder and run `npm run dev`
