@@ -7,6 +7,7 @@ A web application to save, read, update and delete videos from youtube in a data
 - NodeJs
 - MongoDB
 - Typescript
+- ReactJs
 
 ### External modules
 
